@@ -8,13 +8,13 @@ const styles = {
 
 }
 
-const IndexPage = () => {
+const BioPage = () => {
   return (
     <Layout>
-      <SEO title="O mně" />
-      <h1>o mně</h1>
+      <SEO title="Bio" />
+      <h1>bio</h1>
     </Layout>
   )
 }
 
-export default IndexPage
+export default BioPage

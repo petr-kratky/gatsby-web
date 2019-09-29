@@ -8,13 +8,13 @@ const styles = {
 
 }
 
-const IndexPage = () => {
+const WorkPage = () => {
   return (
     <Layout>
-      <SEO title="O mně" />
-      <h1>o mně</h1>
+      <SEO title="Moje práce" />
+      <h1>moje práce</h1>
     </Layout>
   )
 }
 
-export default IndexPage
+export default WorkPage
