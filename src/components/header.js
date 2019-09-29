@@ -36,9 +36,6 @@ const styles = {
   	display: inline-block;
   `,
   menu: css`
-    display: flex;
-    width: 400px;
-    justify-content: space-between;
   	margin-left: auto;
   	& a {
   	  ${linkStyleBase}
@@ -50,6 +47,18 @@ const styles = {
   	  text-shadow: 0 0 .35px #eaeaec, 0 0 .35px #eaeaec;
   	  :before { width: 100% }
   	}
+  	& ul {
+      display: flex;
+      width: 400px;
+      justify-content: space-between;
+  	  list-style-type: none;
+  	  height: 100%;
+  	  margin: 0;
+  	  > li {
+  	    display: inline;
+  	    margin: 0;
+  	  }
+  	}
   `
 }
 
@@ -59,10 +68,20 @@ const Header = ({ title }) => {
     <header css={styles.container}>
       <h1 css={styles.heading}>{title}</h1>
       <nav css={styles.menu}>
-        <Link activeClassName="activeLink" to="/">O mně</Link>
-        <Link activeClassName="activeLink" to="/work">Moje práce</Link>
-        <Link activeClassName="activeLink" to="/bio">Bio</Link>
-        <Link activeClassName="activeLink" to="/contact">Kontakt</Link>
+        <ul>
+          <li>
+            <Link activeClassName="activeLink" to="/">O mně</Link>
+          </li>
+          <li>
+            <Link activeClassName="activeLink" to="/work">Moje práce</Link>
+          </li>
+          <li>
+            <Link activeClassName="activeLink" to="/bio">Bio</Link>
+          </li>
+          <li>
+            <Link activeClassName="activeLink" to="/contact">Kontakt</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   )
