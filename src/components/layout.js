@@ -4,15 +4,21 @@ import { useStaticQuery, graphql } from "gatsby"
 import { css } from "@emotion/core"
 
 import Header from "./header"
+import Footer from "./footer"
 
 
 const styles = {
-  layout: css`
+  body: css`
     background: rgb(22,123,237);
     background: -moz-linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
     background: -webkit-linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
     background: linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+  `,
+  content: css`
+  	flex: 1;
   `
 }
 
@@ -22,17 +28,23 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          author
         }
       }
     }
   `)
 
+  const { title, author } = data.site.siteMetadata
+
   return (
     <>
-      <Header title={data.site.siteMetadata.title}/>
-      <main css={styles.layout}>
-        {children}
-      </main>
+      <Header title={title} />
+      <div css={styles.body}>
+        <main css={styles.content}>
+          {children}
+        </main>
+        <Footer author={author} />
+      </div>
     </>
   )
 }
