@@ -44,8 +44,8 @@ const styles = {
   	}
   	.activeLink {
   	  ${linkStyleBase};
-  	  text-shadow: 0 0 .35px #eaeaec, 0 0 .35px #eaeaec;
-  	  :before { width: 100% }
+  	  //text-shadow: 0 0 .65px #eaeaec, 0 0 .65px #eaeaec;
+  	  -webkit-text-stroke: .9px #eaeaec;
   	}
   	& ul {
       display: flex;
