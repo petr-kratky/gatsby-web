@@ -6,10 +6,11 @@ import { css } from "@emotion/core"
 const styles = {
   container: css`
   	height: 28px;
-  	color: #eaeaec;
+  	color: #ffffff;
   	font-size: 14px;
   	display: flex;
   	justify-content: center;
+  	font-weight: 500;
   `,
   copyright: css`
   	font-weight: 700;
