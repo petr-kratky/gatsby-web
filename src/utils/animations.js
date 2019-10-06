@@ -1,18 +1,23 @@
 import { css } from "@emotion/core"
 
-export const slideInTop = css`
-  animation: slide-in-top 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  @keyframes slide-in-top {
-    0% {
-      transform: translateY(-50px);
-      opacity: 0;
+export const slideInTop = (transformStatic) => {
+  const id = transformStatic ? transformStatic.replace(/\W/g,'-') : "default"
+  const staticProps = transformStatic ? transformStatic : ""
+
+  return css`
+    animation: slide-in-top-${id} 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    @keyframes slide-in-top-${id} {
+      0% {
+        transform: translateY(-50px) ${staticProps};
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) ${staticProps};
+        opacity: 1;
+      }
     }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-`
+  `
+}
 
 export const padLeft = css`
   animation: pad-left 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;

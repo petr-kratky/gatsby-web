@@ -8,7 +8,7 @@ import { slideInTop } from "../utils/animations"
 
 const styles = {
   headerContainer: css`
-    ${slideInTop};
+    ${slideInTop()};
   	background-color: #343434;
   	color: #eaeaec;
   	margin-top: 100px;
@@ -22,7 +22,7 @@ const styles = {
     margin: 0;
   `,
   mainContainer: css`
-    ${slideInTop};
+    ${slideInTop()};
     animation-delay: 0.5s;
   	background-color: #ffffff;
   	height: 300px;
