@@ -29,6 +29,9 @@ const styles = {
     align-items: center;
     color: #eaeaec;
     padding: 0 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 0 20px 15px rgba(0,0,0,.2);
   `,
   heading: css`
   	margin: 0;
@@ -44,8 +47,7 @@ const styles = {
   	}
   	.activeLink {
   	  ${linkStyleBase};
-  	  //text-shadow: 0 0 .65px #eaeaec, 0 0 .65px #eaeaec;
-  	  -webkit-text-stroke: .9px #eaeaec;
+  	  -webkit-text-stroke: 1px #eaeaec;
   	}
   	& ul {
       display: flex;
