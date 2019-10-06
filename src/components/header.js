@@ -70,7 +70,7 @@ const Header = ({ title }) => {
       <nav css={styles.menu}>
         <ul>
           <li>
-            <Link activeClassName="activeLink" to="/">O mně</Link>
+            <Link activeClassName="activeLink" to="/">Kdo jsem</Link>
           </li>
           <li>
             <Link activeClassName="activeLink" to="/work">Moje práce</Link>
