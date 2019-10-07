@@ -15,11 +15,12 @@ const styles = {
     ${slideInTop()};
   	background-color: #343434;
   	color: #eaeaec;
-  	margin-top: 100px;
+  	margin-top: 3%;
   	margin-left: 150px;
   	display: inline-block;
   	padding: 30px;
   	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+  	border-radius: 1px;
   	
     h1 {
       text-transform: uppercase;
@@ -29,7 +30,7 @@ const styles = {
   `,
   nameContainer: css`
   	display: flex;
-  	margin-top: 200px;
+  	margin-top: 7%;
   	justify-content: center;
   	
   	& > h2 {
@@ -43,6 +44,7 @@ const styles = {
       ${slideInTop()};
       animation-delay: 0.5s;
       box-shadow: 0 0 15px 10px rgba(0,0,0,0.15);
+      border-radius: 1px;
       
       .name-pad {
         display: flex;
@@ -57,6 +59,7 @@ const styles = {
         font-size: 130px;
         font-weight: 600;
         box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+        border-radius: 1px;
       }
       
       #name-pad-left {
@@ -85,31 +88,60 @@ const styles = {
   	}
   `,
   contentContainer: css`
-  	margin-top: 150px;
+  	margin-top: 7%;
   	display: flex;
-  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
   	
   	#article-header {
-  	  ${slideInTop("skew(20deg)")};
+  	  box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.3);
+  	  ${slideInTop("skew(0deg)")};
   	  animation-delay: 1.2s;
       background-color: #343434;
       display: flex;
       align-items: center;
       padding: 10px 20px;
+      z-index: 1;
+      position: relative;
+      border-radius: 1px;
       
       h3 {
-        transform: skew(-20deg);
+        transform: skew(-0deg); 
         margin: 0;
         text-transform: uppercase;
         color: #ffffff;
         display: flex;
         align-items: center;
+        font-size: 25px;
         
         img {
           margin: 0 9px;
         }
       }
   	}
+  	
+  	#p-container {
+      background-color: #ffffff;
+      margin: -20px 0 0 50px;
+      width: 100%;
+      padding: 30px 18px 15px 18px;
+      box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+      z-index: -1;
+      border-radius: 1px;
+      ${padRight};
+      animation-delay: 1.8s;
+      
+      p {
+        font-weight: 600;
+        font-size: 25px;
+        margin: 0;
+        color: #232323;
+        max-width: fit-content;
+        line-height: 1.6;
+        position: relative;
+      }
+      
+    }
   `
 }
 
@@ -125,7 +157,7 @@ const IndexPage = () => {
           <div id="name-pad-left" className="name-pad">
             <span>{"<"}</span>
           </div>
-          <span id="first-name">Petr </span>
+          <span id="first-name">Petr</span>
           <span id="last-name">Krátký</span>
           <div id="name-pad-right" className="name-pad">
             <span id="slash">{"/"}</span>
@@ -133,19 +165,24 @@ const IndexPage = () => {
           </div>
         </h2>
       </div>
-      <div css={styles.contentContainer}>
-        <div id="article-header">
-          <h3>
-            <span>full-stack</span>
-            <img src={jsIcon} width="22" alt="Javascript" />
-            <span>&</span>
-            <img src={pyIcon} width="22" alt="Python"/>
-            <span>vývojář s</span>
-            <img src={heartIcon} width="23" alt="Love" />
-            <span>pro design</span>
-          </h3>
+      <article css={styles.contentContainer}>
+        <div>
+          <div id="article-header">
+            <h3>
+              <span>full-stack</span>
+              <img src={jsIcon} width="25" alt="Javascript" />
+              <span>&</span>
+              <img src={pyIcon} width="25" alt="Python" />
+              <span>vývojář s</span>
+              <img src={heartIcon} width="27" alt="Love" />
+              <span>pro design</span>
+            </h3>
+          </div>
+          <div id="p-container">
+            <p><span id="first-word">Miluju</span> tvořit! Naplňujě mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém.</p>
+          </div>
         </div>
-      </div>
+      </article>
     </Layout>
   )
 }
