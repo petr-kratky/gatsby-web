@@ -5,6 +5,7 @@ import { css } from "@emotion/core"
 
 import Header from "./header"
 import Footer from "./footer"
+import { slideInTop } from "../utils/animations"
 
 
 const styles = {
@@ -21,10 +22,39 @@ const styles = {
   	@media (max-width: 1024px) {
   	  margin: auto 7%;
   	}
-  `
+  `,
+  headerContainer: css`
+    ${slideInTop()};
+  	background-color: #343434;
+  	color: #eaeaec;
+  	margin-top: 3%;
+  	display: inline-block;
+  	padding: 30px;
+  	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+  	border-radius: 15px;
+    @media (max-width: 1280px) {
+      margin-top: 7%;
+    }
+    @media (max-width: 1024px) {
+      margin-top: 6%;
+      padding: 20px
+    }
+  	
+    h1 {
+      text-transform: uppercase;
+      font-size: 72px;
+      margin: 0;
+      @media (max-width: 1280px) {
+        font-size: 50px;
+      }
+      @media (max-width: 1024px) {
+        font-size: 42px;
+      }
+  	}
+  `,
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, heading }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -43,6 +73,9 @@ const Layout = ({ children }) => {
       <Header title={title} />
       <div css={styles.body}>
         <main css={styles.content}>
+          <div css={styles.headerContainer}>
+            <h1>{heading}</h1>
+          </div>
           {children}
         </main>
         <Footer author={author} />
@@ -52,7 +85,8 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  heading: PropTypes.node.isRequired
 }
 
 export default Layout

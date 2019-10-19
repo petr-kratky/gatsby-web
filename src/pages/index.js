@@ -11,35 +11,6 @@ import SEO from "../components/seo"
 import { slideInTop, padLeft, padRight } from "../utils/animations"
 
 const styles = {
-  headerContainer: css`
-    ${slideInTop()};
-  	background-color: #343434;
-  	color: #eaeaec;
-  	margin-top: 3%;
-  	display: inline-block;
-  	padding: 30px;
-  	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
-  	border-radius: 15px;
-    @media (max-width: 1280px) {
-      margin-top: 7%;
-    }
-    @media (max-width: 1024px) {
-      margin-top: 6%;
-      padding: 20px
-    }
-  	
-    h1 {
-      text-transform: uppercase;
-      font-size: 72px;
-      margin: 0;
-      @media (max-width: 1280px) {
-        font-size: 50px;
-      }
-      @media (max-width: 1024px) {
-        font-size: 42px;
-      }
-  	}
-  `,
   nameContainer: css`
   	display: flex;
   	margin-top: 7%;
@@ -233,11 +204,8 @@ const styles = {
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout heading="Kdo jsem?">
       <SEO title="Kdo jsem" />
-      <div css={styles.headerContainer}>
-        <h1>Kdo jsem?</h1>
-      </div>
       <div css={styles.nameContainer}>
         <h2>
           <div id="name-pad-left" className="name-pad">

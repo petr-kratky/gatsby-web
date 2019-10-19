@@ -7,20 +7,6 @@ import SEO from "../components/seo"
 import { slideInTop } from "../utils/animations"
 
 const styles = {
-  headerContainer: css`
-    ${slideInTop()};
-  	background-color: #343434;
-  	color: #eaeaec;
-  	margin-top: 100px;
-  	margin-left: 150px;
-  	display: inline-block;
-  	padding: 30px;
-  `,
-  header: css`
-    text-transform: uppercase;
-    font-size: 72px;
-    margin: 0;
-  `,
   mainContainer: css`
     ${slideInTop()};
     animation-delay: 0.5s;
@@ -36,11 +22,8 @@ const styles = {
 
 const BioPage = () => {
   return (
-    <Layout>
+    <Layout heading="Bio">
       <SEO title="Bio" />
-      <div css={styles.headerContainer}>
-        <h1 css={styles.header}>bio</h1>
-      </div>
       <div css={styles.mainContainer}>dss</div>
     </Layout>
   )

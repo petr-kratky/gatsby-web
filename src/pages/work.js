@@ -10,9 +10,8 @@ const styles = {
 
 const WorkPage = () => {
   return (
-    <Layout>
+    <Layout heading="Moje práce">
       <SEO title="Moje práce" />
-      <h1>moje práce</h1>
     </Layout>
   )
 }
