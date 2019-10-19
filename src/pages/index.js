@@ -13,14 +13,7 @@ import { slideInTop, padLeft, padRight } from "../utils/animations"
 const styles = {
   nameContainer: css`
   	display: flex;
-  	margin-top: 7%;
   	justify-content: center;
-    @media (max-width: 1280px) {
-      margin-top: 10%;
-    }
-    @media (max-width: 1024px) {
-      margin-top: 8%;
-    }
   	
   	& > h2 {
       margin: 0;

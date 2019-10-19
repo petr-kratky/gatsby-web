@@ -28,15 +28,18 @@ const styles = {
   	background-color: #343434;
   	color: #eaeaec;
   	margin-top: 3%;
+  	margin-bottom: 7%;
   	display: inline-block;
   	padding: 30px;
   	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
   	border-radius: 15px;
     @media (max-width: 1280px) {
       margin-top: 7%;
+      margin-bottom: 10%;
     }
     @media (max-width: 1024px) {
       margin-top: 6%;
+      margin-bottom: 8%;
       padding: 20px
     }
   	
