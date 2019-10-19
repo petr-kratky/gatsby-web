@@ -5,15 +5,16 @@ import { css } from "@emotion/core"
 
 const styles = {
   container: css`
-  	height: 28px;
+  	height: 40px;
   	color: #ffffff;
   	font-size: 14px;
   	display: flex;
   	justify-content: center;
+  	align-items: flex-end;
+  	margin-bottom: 5px;
   	font-weight: 500;
   	@media (max-width: 1024px) {
-  	font-size: 12px;
-  	height: 24px;
+      font-size: 12px;
   	}
   `,
   copyright: css`
