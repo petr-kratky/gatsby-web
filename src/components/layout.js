@@ -15,6 +15,7 @@ const styles = {
     min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    align-items: center;
   `,
   content: css`
   	flex: 1;
@@ -55,6 +56,11 @@ const styles = {
       }
   	}
   `,
+  contentWrapper: css`
+  	max-width: 1680px;
+  	width: 100%;
+  	flex: 1;
+  `
 }
 
 const Layout = ({ children, heading }) => {
@@ -75,12 +81,14 @@ const Layout = ({ children, heading }) => {
     <>
       <Header title={title} />
       <div css={styles.body}>
-        <main css={styles.content}>
-          <div css={styles.headerContainer}>
-            <h1>{heading}</h1>
-          </div>
-          {children}
-        </main>
+        <div css={styles.contentWrapper}>
+          <main css={styles.content}>
+            <div css={styles.headerContainer}>
+              <h1>{heading}</h1>
+            </div>
+            {children}
+          </main>
+        </div>
         <Footer author={author} />
       </div>
     </>
