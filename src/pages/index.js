@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 
 import heartIcon from "../images/heart.png"
 import jsIcon from "../images/js_logo.svg"
-import pyIcon from "../images/py_logo.svg"
+import pyIcon from "../images/py_logo.png"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
