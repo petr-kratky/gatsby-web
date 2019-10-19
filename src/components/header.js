@@ -37,6 +37,11 @@ const styles = {
   	margin: 0;
   	text-transform: uppercase;
   	display: inline-block;
+  	text-decoration: none;
+  	:visited { color: #eaeaec }
+  	font-weight: bold;
+  	font-size: 22px;
+  	
   `,
   menu: css`
   	margin-left: auto;
@@ -68,7 +73,7 @@ const Header = ({ title }) => {
 
   return (
     <header css={styles.container}>
-      <h1 css={styles.heading}>{title}</h1>
+      <a href="/" css={styles.heading}>{title}</a>
       <nav css={styles.menu}>
         <ul>
           <li>

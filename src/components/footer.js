@@ -11,6 +11,10 @@ const styles = {
   	display: flex;
   	justify-content: center;
   	font-weight: 500;
+  	@media (max-width: 1024px) {
+  	font-size: 12px;
+  	height: 24px;
+  	}
   `,
   copyright: css`
   	font-weight: 700;

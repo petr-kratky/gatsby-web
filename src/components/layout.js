@@ -10,8 +10,6 @@ import Footer from "./footer"
 const styles = {
   body: css`
     background: rgb(22,123,237);
-    background: -moz-linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
     background: linear-gradient(180deg, rgba(22,123,237,1) 0%, rgba(141,83,165,1) 30%, rgba(254,50,93,1) 100%);
     min-height: calc(100vh - 60px);
     display: flex;
@@ -19,6 +17,10 @@ const styles = {
   `,
   content: css`
   	flex: 1;
+  	margin: auto 10%;
+  	@media (max-width: 1024px) {
+  	  margin: auto 7%;
+  	}
   `
 }
 

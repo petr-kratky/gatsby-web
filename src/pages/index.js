@@ -16,22 +16,40 @@ const styles = {
   	background-color: #343434;
   	color: #eaeaec;
   	margin-top: 3%;
-  	margin-left: 150px;
   	display: inline-block;
   	padding: 30px;
   	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
-  	border-radius: 1px;
+  	border-radius: 15px;
+    @media (max-width: 1280px) {
+      margin-top: 7%;
+    }
+    @media (max-width: 1024px) {
+      margin-top: 6%;
+      padding: 20px
+    }
   	
     h1 {
       text-transform: uppercase;
       font-size: 72px;
       margin: 0;
+      @media (max-width: 1280px) {
+        font-size: 50px;
+      }
+      @media (max-width: 1024px) {
+        font-size: 42px;
+      }
   	}
   `,
   nameContainer: css`
   	display: flex;
   	margin-top: 7%;
   	justify-content: center;
+    @media (max-width: 1280px) {
+      margin-top: 10%;
+    }
+    @media (max-width: 1024px) {
+      margin-top: 8%;
+    }
   	
   	& > h2 {
       margin: 0;
@@ -44,7 +62,15 @@ const styles = {
       ${slideInTop()};
       animation-delay: 0.5s;
       box-shadow: 0 0 15px 10px rgba(0,0,0,0.15);
-      border-radius: 1px;
+      border-radius: 10px;
+      @media (max-width: 1280px) {
+        font-size: 68px;
+        padding: 25px 30px;
+      }
+      @media (max-width: 1024px) {
+        font-size: 56px;
+        padding: 15px 20px;
+      }
       
       .name-pad {
         display: flex;
@@ -59,17 +85,39 @@ const styles = {
         font-size: 130px;
         font-weight: 600;
         box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
-        border-radius: 1px;
+        border-radius: 9px;
+        @media (max-width: 1280px) {
+          font-size: 100px;
+          width: 140px;
+          top: -20px;
+        }
+        @media (max-width: 1024px) {
+          font-size: 72px;
+          width: 110px;
+          top: -12px;
+        }
       }
       
       #name-pad-left {
         ${padLeft};
         left: -155px;
+        @media (max-width: 1280px) {
+          left: -130px;
+        }
+        @media (max-width: 1024px) {
+          left: -100px;
+        }
       }
       
       #name-pad-right {
         ${padRight};
         right: -155px;
+        @media (max-width: 1280px) {
+          right: -130px;
+        }
+        @media (max-width: 1024px) {
+          right: -100px;
+        }
       }
       
       #first-name {
@@ -84,6 +132,13 @@ const styles = {
         font-size: 90px;
         font-weight: 700;
         margin-left: 5px;
+        @media (max-width: 1280px) {
+          font-size: 80px;
+        }
+        @media (max-width: 1024px) {
+          font-size: 56px;
+        }
+        
       }
   	}
   `,
@@ -92,7 +147,13 @@ const styles = {
   	display: flex;
   	align-items: center;
   	flex-direction: column;
-  	
+    @media (max-width: 1280px) {
+      margin-top: 10%;
+    }
+    @media (max-width: 1024px) {
+      margin-top: 8%;
+    }
+    
   	#article-header {
   	  box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.3);
   	  ${slideInTop("skew(0deg)")};
@@ -103,7 +164,7 @@ const styles = {
       padding: 10px 20px;
       z-index: 1;
       position: relative;
-      border-radius: 1px;
+      border-radius: 10px;
       
       h3 {
         transform: skew(-0deg); 
@@ -113,9 +174,22 @@ const styles = {
         display: flex;
         align-items: center;
         font-size: 25px;
+        @media (max-width: 1280px) {
+          font-size: 20px;
+        }
+        @media (max-width: 1024px) {
+          font-size: 18px;
+        }
         
         img {
           margin: 0 9px;
+          width: 25px;
+          @media (max-width: 1280px) {
+            width: 22px;
+          }
+          @media (max-width: 1024px) {
+            width: 20px;
+          }
         }
       }
   	}
@@ -127,9 +201,15 @@ const styles = {
       padding: 30px 18px 15px 18px;
       box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
       z-index: -1;
-      border-radius: 1px;
+      border-radius: 8px;
       ${padRight};
       animation-delay: 1.8s;
+      @media (max-width: 1280px) {
+        margin: -20px 0 0 40px;
+      }
+      @media (max-width: 1024px) {
+        margin: -20px 0 0 30px;
+      }
       
       p {
         font-weight: 600;
@@ -139,6 +219,12 @@ const styles = {
         max-width: fit-content;
         line-height: 1.6;
         position: relative;
+        @media (max-width: 1280px) {
+          font-size: 20px;
+        }
+        @media (max-width: 1024px) {
+          font-size: 18px;
+        }
       }
       
     }
@@ -170,11 +256,11 @@ const IndexPage = () => {
           <div id="article-header">
             <h3>
               <span>full-stack</span>
-              <img src={jsIcon} width="25" alt="Javascript" />
+              <img src={jsIcon} alt="Javascript" />
               <span>&</span>
-              <img src={pyIcon} width="25" alt="Python" />
+              <img src={pyIcon} alt="Python" />
               <span>vývojář s</span>
-              <img src={heartIcon} width="27" alt="Love" />
+              <img src={heartIcon} alt="Love" />
               <span>pro design</span>
             </h3>
           </div>
