@@ -3,28 +3,150 @@ import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Paper from "../components/paper"
 
-import { slideInTop } from "../utils/animations"
+import profilePic from "../images/profile_pic.jpg"
+
+import { slideInLeft, slideInRight } from "../utils/animations"
+
+const picSize = 225
+const flexMargin = 16
 
 const styles = {
   mainContainer: css`
-    ${slideInTop()};
-    animation-delay: 0.5s;
-  	background-color: #ffffff;
-  	height: 300px;
-  	margin: 0 150px;
+    display: flex;
+    flex-wrap: wrap;
+    & > * { 
+      margin: 0 ${flexMargin}px ${picSize / 3}px; 
+    }
   `,
-  firstName: css`
+  paperBase: css`
+  	animation-delay: 1s;
+  	transition: box-shadow .5s ease-out;
+  	&:hover {
+  	  box-shadow: 0 0 15px 8px rgba(0,0,0,0.45);
+  	}
   `,
-  lastName: css`
+  bioWrapperBase: css`
+    width: calc(50% - ${flexMargin * 2}px);
+    min-width: min-content;
+    flex-grow: 1;
+    transition: box-shadow .5s ease-out, transform .5s ease-out;
+  	&:hover #profilePicWrapper {
+  	  box-shadow: 0 0 15px 8px rgba(0,0,0,0.45);
+  	}
+  	&:hover #profilePic {
+  	  transform: scale(1.05) translateX(5px);
+  	}
+    
+  `,
+  bioContainer: css`
+  	position: relative;
+  	display: flex;
+  	flex-wrap: wrap;
+  	width: 100%;
+  	min-width: 450px;
+  `,
+  bioTextBase: css`
+  	font-size: 18px;
+  	font-weight: 500;
+  	margin: 0;
+  `,
+  profilePicWrapperBase: css`
+  	display: inline-block;
+  	overflow: hidden;
+  	border-radius: 50%;
+  	width: ${picSize}px;
+  	height: ${picSize}px;
+  	animation-delay: .5s;
+  	z-index: 2;
+  	position: absolute;
+  	top: calc(50% - ${picSize / 2}px);
+  	box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+  	transition: box-shadow .5s ease-out;
+  `,
+  profilePic: css`
+  	vertical-align: middle;
+  	transition: transform .5s ease-out;
+  	&:hover {
+  	  transform: scale(1.05) translateX(5px);
+  	}
   `
+}
+
+const BioSection = ({ picPosition }) => {
+  const leftStyles = {
+    bioWrapper: css`
+      ${styles.bioWrapperBase};
+  	  ${slideInLeft()};
+      padding-left: ${picSize / 2}px;
+    `,
+    paper: css`
+      ${styles.paperBase};
+  	  ${slideInLeft()};
+    `,
+    bioText: css`
+      ${styles.bioTextBase};
+      text-align: left;
+      padding: 16px 16px 16px ${picSize / 2 + 10}px;
+    `,
+    profilePicWrapper: css`
+      ${styles.profilePicWrapperBase};
+      left: calc(-${picSize / 2}px);
+    `
+  }
+
+  const rightStyles = {
+    bioWrapper: css`
+      ${styles.bioWrapperBase};
+      ${slideInRight()};
+      padding-right: ${picSize / 2}px;
+    `,
+    paper: css`
+      ${styles.paperBase};
+  	  ${slideInRight()};
+    `,
+    bioText: css`
+      ${styles.bioTextBase};
+      text-align: right;
+      padding: 16px ${picSize / 2 + 10}px 16px 16px;
+    `,
+    profilePicWrapper: css`
+      ${styles.profilePicWrapperBase};
+      right: calc(-${picSize / 2}px);
+    `
+  }
+
+  const localStyles = picPosition === "left" ? leftStyles : rightStyles
+
+  return (
+    <div css={localStyles.bioWrapper}>
+      <div css={styles.bioContainer}>
+        <div css={localStyles.profilePicWrapper} id="profilePicWrapper">
+          <img src={profilePic} alt="profilová fotka" css={styles.profilePic} id="profilePic"/>
+        </div>
+        <Paper addCss={localStyles.paper}>
+          <p css={localStyles.bioText}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolore eius enim esse facilis illum
+            porro quam. Atque consectetur deleniti id ipsam laboriosam molestiae nobis quaerat quam, totam vel,
+            voluptates?
+          </p>
+        </Paper>
+      </div>
+    </div>
+  )
 }
 
 const BioPage = () => {
   return (
     <Layout heading="Bio">
       <SEO title="Bio" />
-      <div css={styles.mainContainer}>dss</div>
+      <div css={styles.mainContainer}>
+        <BioSection picPosition="left" />
+        <BioSection picPosition="right" />
+        <BioSection picPosition="left" />
+        <BioSection picPosition="right" />
+      </div>
     </Layout>
   )
 }
