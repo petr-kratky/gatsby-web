@@ -81,52 +81,54 @@ export const BioSection = ({ picPosition, image, text, index, classes }) => {
   const leftStyles = {
     bioWrapper: css`
       ${styles.bioWrapperBase};
-      ${classes && classes.bioWrapper ? classes.bioWrapper : null}
   	  ${slideInLeft()};
       padding-left: ${picSize / 2}px;
       animation-delay: ${animationDelay}s;
+      ${classes && classes.bioWrapper ? classes.bioWrapper : null};
     `,
     paper: css`
       ${styles.paperBase};
-      ${classes && classes.paper ? classes.paper : null};
   	  ${slideInLeft()};
+  	  animation-delay: ${animationDelay + 0.05}s;
+      ${classes && classes.paper ? classes.paper : null};
     `,
     bioText: css`
       ${styles.bioTextBase};
-      ${classes && classes.bioText ? classes.bioText : null};
       text-align: left;
       padding: 16px 16px 16px ${picSize / 2 + 10}px;
+      ${classes && classes.bioText ? classes.bioText : null};
     `,
     profilePicWrapper: css`
       ${styles.profilePicWrapperBase};
-      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
       left: calc(-${picSize / 2}px);
+      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
     `
   }
 
   const rightStyles = {
     bioWrapper: css`
       ${styles.bioWrapperBase};
-      ${classes && classes.bioWrapper ? classes.bioWrapper : null};
       ${slideInRight()};
       padding-right: ${picSize / 2}px;
       animation-delay: ${animationDelay}s;
+      ${classes && classes.bioWrapper ? classes.bioWrapper : null};
     `,
     paper: css`
       ${styles.paperBase};
-      ${classes && classes.paper ? classes.paper : null};
   	  ${slideInRight()};
+  	  animation-delay: ${animationDelay + 0.05}s;
+      ${classes && classes.paper ? classes.paper : null};
     `,
     bioText: css`
       ${styles.bioTextBase};
-      ${classes && classes.bioText ? classes.bioText : null};
       text-align: right;
       padding: 16px ${picSize / 2 + 10}px 16px 16px;
+      ${classes && classes.bioText ? classes.bioText : null};
     `,
     profilePicWrapper: css`
       ${styles.profilePicWrapperBase};
-      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
       right: calc(-${picSize / 2}px);
+      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
     `
   }
 
