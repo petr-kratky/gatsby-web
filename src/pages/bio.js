@@ -75,27 +75,31 @@ const styles = {
   `
 }
 
-const BioSection = ({ picPosition, image, text, index }) => {
+export const BioSection = ({ picPosition, image, text, index, classes }) => {
   const animationDelay = (index + 1) / 3.5
 
   const leftStyles = {
     bioWrapper: css`
       ${styles.bioWrapperBase};
+      ${classes && classes.bioWrapper ? classes.bioWrapper : null}
   	  ${slideInLeft()};
       padding-left: ${picSize / 2}px;
       animation-delay: ${animationDelay}s;
     `,
     paper: css`
       ${styles.paperBase};
+      ${classes && classes.paper ? classes.paper : null};
   	  ${slideInLeft()};
     `,
     bioText: css`
       ${styles.bioTextBase};
+      ${classes && classes.bioText ? classes.bioText : null};
       text-align: left;
       padding: 16px 16px 16px ${picSize / 2 + 10}px;
     `,
     profilePicWrapper: css`
       ${styles.profilePicWrapperBase};
+      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
       left: calc(-${picSize / 2}px);
     `
   }
@@ -103,21 +107,25 @@ const BioSection = ({ picPosition, image, text, index }) => {
   const rightStyles = {
     bioWrapper: css`
       ${styles.bioWrapperBase};
+      ${classes && classes.bioWrapper ? classes.bioWrapper : null};
       ${slideInRight()};
       padding-right: ${picSize / 2}px;
       animation-delay: ${animationDelay}s;
     `,
     paper: css`
       ${styles.paperBase};
+      ${classes && classes.paper ? classes.paper : null};
   	  ${slideInRight()};
     `,
     bioText: css`
       ${styles.bioTextBase};
+      ${classes && classes.bioText ? classes.bioText : null};
       text-align: right;
       padding: 16px ${picSize / 2 + 10}px 16px 16px;
     `,
     profilePicWrapper: css`
       ${styles.profilePicWrapperBase};
+      ${classes && classes.profilePicWrapper ? classes.profilePicWrapper : null};
       right: calc(-${picSize / 2}px);
     `
   }
