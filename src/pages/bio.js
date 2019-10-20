@@ -6,6 +6,9 @@ import SEO from "../components/seo"
 import Paper from "../components/paper"
 
 import profilePic from "../images/profile_pic.jpg"
+import cameraPic from "../images/camera.jpg"
+import workoutPic from "../images/workout.jpg"
+import computerPic from "../images/computer.jpg"
 
 import { slideInLeft, slideInRight } from "../utils/animations"
 
@@ -21,7 +24,6 @@ const styles = {
     }
   `,
   paperBase: css`
-  	animation-delay: 1s;
   	transition: box-shadow .5s ease-out;
   	&:hover {
   	  box-shadow: 0 0 15px 8px rgba(0,0,0,0.45);
@@ -58,7 +60,6 @@ const styles = {
   	border-radius: 50%;
   	width: ${picSize}px;
   	height: ${picSize}px;
-  	animation-delay: .5s;
   	z-index: 2;
   	position: absolute;
   	top: calc(50% - ${picSize / 2}px);
@@ -74,12 +75,15 @@ const styles = {
   `
 }
 
-const BioSection = ({ picPosition }) => {
+const BioSection = ({ picPosition, image, text, index }) => {
+  const animationDelay = (index + 1) / 3.5
+
   const leftStyles = {
     bioWrapper: css`
       ${styles.bioWrapperBase};
   	  ${slideInLeft()};
       padding-left: ${picSize / 2}px;
+      animation-delay: ${animationDelay}s;
     `,
     paper: css`
       ${styles.paperBase};
@@ -101,6 +105,7 @@ const BioSection = ({ picPosition }) => {
       ${styles.bioWrapperBase};
       ${slideInRight()};
       padding-right: ${picSize / 2}px;
+      animation-delay: ${animationDelay}s;
     `,
     paper: css`
       ${styles.paperBase};
@@ -123,13 +128,11 @@ const BioSection = ({ picPosition }) => {
     <div css={localStyles.bioWrapper}>
       <div css={styles.bioContainer}>
         <div css={localStyles.profilePicWrapper} id="profilePicWrapper">
-          <img src={profilePic} alt="profilová fotka" css={styles.profilePic} id="profilePic"/>
+          <img src={image} alt="profilová fotka" css={styles.profilePic} id="profilePic" />
         </div>
         <Paper addCss={localStyles.paper}>
           <p css={localStyles.bioText}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolore eius enim esse facilis illum
-            porro quam. Atque consectetur deleniti id ipsam laboriosam molestiae nobis quaerat quam, totam vel,
-            voluptates?
+            {text}
           </p>
         </Paper>
       </div>
@@ -138,14 +141,38 @@ const BioSection = ({ picPosition }) => {
 }
 
 const BioPage = () => {
+  const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolore eius enim esse facilis illum porro quam. Atque consectetur deleniti id ipsam laboriosam molestiae nobis quaerat quam, totam vel, voluptates?"
+
+  const sections = [
+    {
+      position: "left",
+      image: profilePic,
+      text: lorem
+    },
+    {
+      position: "right",
+      image: computerPic,
+      text: lorem
+    },
+    {
+      position: "left",
+      image: workoutPic,
+      text: lorem
+    },
+    {
+      position: "right",
+      image: cameraPic,
+      text: lorem
+    }
+  ]
+
   return (
     <Layout heading="Bio">
       <SEO title="Bio" />
       <div css={styles.mainContainer}>
-        <BioSection picPosition="left" />
-        <BioSection picPosition="right" />
-        <BioSection picPosition="left" />
-        <BioSection picPosition="right" />
+        {sections.map(({ position, image, text }, index) =>
+          <BioSection key={index} picPosition={position} image={image} text={text} index={index}/>
+        )}
       </div>
     </Layout>
   )
