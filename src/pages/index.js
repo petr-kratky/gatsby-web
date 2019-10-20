@@ -4,11 +4,14 @@ import { css } from "@emotion/core"
 import heartIcon from "../images/heart.png"
 import jsIcon from "../images/js_logo.svg"
 import pyIcon from "../images/py_logo.png"
+import profilePic from "../images/profile_pic.jpg"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Paper from "../components/paper"
 
 import { slideInTop, padLeft, padRight } from "../utils/animations"
+import { BioSection } from "./bio"
 
 const styles = {
   nameContainer: css`
@@ -106,92 +109,51 @@ const styles = {
       }
   	}
   `,
-  contentContainer: css`
-  	margin-top: 7%;
+  mainContainer: css`
   	display: flex;
-  	align-items: center;
-  	flex-direction: column;
-    @media (max-width: 1280px) {
-      margin-top: 10%;
-    }
-    @media (max-width: 1024px) {
-      margin-top: 8%;
-    }
+  	flex-grow: 1;
+  	justify-content: center;
+  `,
+  sectionContainer: css`
+  	margin-top: 9%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 1;
+    & > * { margin: 100px auto; }
     
-  	#article-header {
-  	  box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.3);
-  	  ${slideInTop("skew(0deg)")};
-  	  animation-delay: 1.2s;
-      background-color: #343434;
-      display: flex;
-      align-items: center;
-      padding: 10px 20px;
-      z-index: 1;
-      position: relative;
-      border-radius: 10px;
-      
-      h3 {
-        transform: skew(-0deg); 
-        margin: 0;
-        text-transform: uppercase;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        font-size: 25px;
-        @media (max-width: 1280px) {
-          font-size: 20px;
-        }
-        @media (max-width: 1024px) {
-          font-size: 18px;
-        }
-        
-        img {
-          margin: 0 9px;
-          width: 25px;
-          @media (max-width: 1280px) {
-            width: 22px;
-          }
-          @media (max-width: 1024px) {
-            width: 20px;
-          }
-        }
-      }
-  	}
-  	
-  	#p-container {
-      background-color: #ffffff;
-      margin: -20px 0 0 50px;
-      width: 100%;
-      padding: 30px 18px 15px 18px;
-      box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
-      z-index: -1;
-      border-radius: 8px;
-      ${padRight};
-      animation-delay: 1.8s;
-      @media (max-width: 1280px) {
-        margin: -20px 0 0 40px;
-      }
-      @media (max-width: 1024px) {
-        margin: -20px 0 0 30px;
-      }
-      
-      p {
-        font-weight: 600;
-        font-size: 25px;
-        margin: 0;
-        color: #232323;
-        max-width: fit-content;
-        line-height: 1.6;
-        position: relative;
-        @media (max-width: 1280px) {
-          font-size: 20px;
-        }
-        @media (max-width: 1024px) {
-          font-size: 18px;
-        }
-      }
-      
+  `,
+  sectionHeading: css`
+    ${slideInTop()};
+    animation-delay: 1.2s;
+    margin: 0;
+    border-radius: 10px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #343434;
+    box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.3);
+    line-height: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    img {
+      margin: 0 9px;
+      width: 23px;
+      height: 23px;
+      vertical-align: text-top;
     }
+  `,
+  bioWrapper: css`
+  	width: 60%;
+  	@media (max-width: 1440px) { width: 70%; }
+  	@media (max-width: 1024px) { width: 90%; }
+  `,
+  sectionText: css`
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0;
   `
 }
 
@@ -212,24 +174,29 @@ const IndexPage = () => {
           </div>
         </h2>
       </div>
-      <article css={styles.contentContainer}>
-        <div>
-          <div id="article-header">
-            <h3>
-              <span>full-stack</span>
-              <img src={jsIcon} alt="Javascript" />
-              <span>&</span>
-              <img src={pyIcon} alt="Python" />
-              <span>vývojář s</span>
-              <img src={heartIcon} alt="Love" />
-              <span>pro design</span>
-            </h3>
-          </div>
-          <div id="p-container">
-            <p><span id="first-word">Miluju</span> tvořit! Naplňujě mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém.</p>
-          </div>
-        </div>
-      </article>
+      <div css={styles.mainContainer}>
+        <section css={styles.sectionContainer}>
+          <h3 css={styles.sectionHeading}>
+            <span>full-</span>
+            <span>stack</span>
+            <img src={jsIcon} alt="Javascript" />
+            <span>&</span>
+            <img src={pyIcon} alt="Python" />
+            <span>vývojář&nbsp;</span>
+            <span>s</span>
+            <img src={heartIcon} alt="Love" />
+            <span>pro&nbsp;</span>
+            <span>design</span>
+          </h3>
+          <BioSection
+            picPosition="left"
+            image={profilePic}
+            text="Miluju tvořit! Naplňujě mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém."
+            index={4}
+            classes={{ bioWrapper: styles.bioWrapper }}
+          />
+        </section>
+      </div>
     </Layout>
   )
 }
