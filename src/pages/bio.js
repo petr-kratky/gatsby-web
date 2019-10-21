@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Paper from "../components/paper"
 
-import profilePic from "../images/profile_pic.jpg"
+import booksPic from "../images/books.jpg"
 import cameraPic from "../images/camera.jpg"
 import workoutPic from "../images/workout.jpg"
 import computerPic from "../images/computer.jpg"
@@ -25,6 +25,8 @@ const styles = {
   `,
   paperBase: css`
   	transition: box-shadow .5s ease-out;
+  	width: 100%;
+  	height: 100%;
   	&:hover {
   	  box-shadow: 0 0 15px 8px rgba(0,0,0,0.45);
   	}
@@ -47,12 +49,15 @@ const styles = {
   	display: flex;
   	flex-wrap: wrap;
   	width: 100%;
+  	height: 100%;
   	min-width: 450px;
   `,
   bioTextBase: css`
   	font-size: 18px;
   	font-weight: 500;
   	margin: 0;
+  	height: 100%;
+  	width: 100%;
   `,
   profilePicWrapperBase: css`
   	display: inline-block;
@@ -151,28 +156,26 @@ export const BioSection = ({ picPosition, image, text, index, classes }) => {
 }
 
 const BioPage = () => {
-  const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolore eius enim esse facilis illum porro quam. Atque consectetur deleniti id ipsam laboriosam molestiae nobis quaerat quam, totam vel, voluptates?"
-
   const sections = [
     {
       position: "left",
-      image: profilePic,
-      text: lorem
+      image: computerPic,
+      text: "Programování není jen rozhraní mezi člověkem a počítačem - je to jazyk. Pomáhá mi formovat myšlenky, zhmotňovat koncepty do reality a sdílet nápady s ostatními."
     },
     {
       position: "right",
-      image: computerPic,
-      text: lorem
+      image: workoutPic,
+      text: "Sport je moje každodenní palivo. Dostávám při něm většinu svých nápadů a rovnám si myšlenky. Cvičení je vlastně taková meditace, jen se u ní trochu zapotíte."
     },
     {
       position: "left",
-      image: workoutPic,
-      text: lorem
+      image: cameraPic,
+      text: "Foťák je moje třetí oko. Baví mě dívat se na svět skrz hledáček a nacházet neobyčejnosti v obyčejných každodenních věcech. Nejlepší fotky, stejně jako nápady, přichází, právě když je nečekáš."
     },
     {
       position: "right",
-      image: cameraPic,
-      text: lorem
+      image: booksPic,
+      text: "Bez písma by lidstvo pořád rozdělávalo oheň kamenem. Ani já se nechci zaseknout v pravěku, a proto si chodím pro inspiraci a motivaci do knih. Rád si čtu přiběhy druhých a učím se z nich. Na romány mě ale  neužije."
     }
   ]
 
@@ -181,7 +184,7 @@ const BioPage = () => {
       <SEO title="Bio" />
       <div css={styles.mainContainer}>
         {sections.map(({ position, image, text }, index) =>
-          <BioSection key={index} picPosition={position} image={image} text={text} index={index}/>
+          <BioSection key={index} picPosition={position} image={image} text={text} index={index} />
         )}
       </div>
     </Layout>

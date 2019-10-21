@@ -191,7 +191,7 @@ const IndexPage = () => {
           <BioSection
             picPosition="left"
             image={profilePic}
-            text="Miluju tvořit! Naplňujě mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém."
+            text="Miluju tvořit! Baví mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém."
             index={4}
             classes={{ bioWrapper: styles.bioWrapper }}
           />
