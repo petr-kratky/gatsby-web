@@ -37,6 +37,7 @@ const styles = {
   	padding: 12px;
   	border-radius: 8px;
   	font-weight: 600;
+  	font-size: 28px;
   `,
   paperContent: css`
   	display: flex;
