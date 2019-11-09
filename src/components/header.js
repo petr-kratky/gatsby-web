@@ -41,7 +41,7 @@ const styles = {
   	text-decoration: none;
   	:visited { color: #eaeaec }
   	font-weight: bold;
-  	font-size: 22px;
+  	font-size: 26px;
   	
   `,
   menu: css`

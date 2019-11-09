@@ -27,7 +27,7 @@ const styles = {
   headerContainer: css`
     ${slideInTop()};
   	background-color: #343434;
-  	color: #eaeaec;
+  	color: #ffffff;
   	margin-top: 3%;
   	margin-bottom: 7%;
   	display: inline-block;
@@ -46,6 +46,7 @@ const styles = {
   	
     h1 {
       text-transform: uppercase;
+      text-align: center;
       font-size: 72px;
       margin: 0;
       @media (max-width: 1280px) {
@@ -55,6 +56,9 @@ const styles = {
         font-size: 42px;
       }
   	}
+  `,
+  fillerContainer: css`
+  	margin-top: 12%;
   `,
   contentWrapper: css`
   	max-width: 1680px;
@@ -83,9 +87,11 @@ const Layout = ({ children, heading }) => {
       <div css={styles.body}>
         <div css={styles.contentWrapper}>
           <main css={styles.content}>
-            <div css={styles.headerContainer}>
-              <h1>{heading}</h1>
-            </div>
+            {heading ? (
+              <div css={styles.headerContainer}>
+                <h1>{heading}</h1>
+              </div>
+            ) : <div css={styles.fillerContainer} />}
             {children}
           </main>
         </div>

@@ -8,16 +8,16 @@ import profilePic from "../images/profile_pic.jpg"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BioSection from "../components/bioSection"
 
 import { slideInTop, padLeft, padRight } from "../utils/animations"
-import BioSection from "../components/bioSection"
 
 const styles = {
   nameContainer: css`
   	display: flex;
   	justify-content: center;
   	
-  	& > h2 {
+  	& > h1 {
       margin: 0;
       padding: 25px 30px;
       font-size: 82px;
@@ -49,7 +49,7 @@ const styles = {
         top: -20px;
         color: #ffffff;
         font-size: 130px;
-        font-weight: 600;
+        font-weight: 500;
         box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
         border-radius: 9px;
         @media (max-width: 1280px) {
@@ -91,12 +91,12 @@ const styles = {
       }
       
       #last-name {
-        font-weight: 500;
+        font-weight: 600;
       }
       
       #slash {
         font-size: 90px;
-        font-weight: 700;
+        font-weight: 600;
         margin-left: 5px;
         @media (max-width: 1280px) {
           font-size: 80px;
@@ -158,10 +158,10 @@ const styles = {
 
 const IndexPage = () => {
   return (
-    <Layout heading="Kdo jsem?">
+    <Layout>
       <SEO title="Kdo jsem" />
       <div css={styles.nameContainer}>
-        <h2>
+        <h1>
           <div id="name-pad-left" className="name-pad">
             <span>{"<"}</span>
           </div>
@@ -171,7 +171,7 @@ const IndexPage = () => {
             <span id="slash">{"/"}</span>
             <span>{">"}</span>
           </div>
-        </h2>
+        </h1>
       </div>
       <div css={styles.mainContainer}>
         <section css={styles.sectionContainer}>
@@ -193,6 +193,7 @@ const IndexPage = () => {
             text="Miluju tvořit! Baví mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém."
             alt="profilová fotografie"
             index={4}
+            picSize={200}
             classes={{ bioWrapper: styles.bioWrapper }}
           />
         </section>

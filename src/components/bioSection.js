@@ -65,6 +65,7 @@ const BioSection = ({ picPosition, image, text, index, classes, picSize, flexMar
       &:hover {
         transform: scale(1.05) translateX(5px);
       }
+      ${classes && classes.profilePic ? classes.profilePic : null};
     `
   }
 
