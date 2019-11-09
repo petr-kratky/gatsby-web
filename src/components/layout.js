@@ -58,7 +58,7 @@ const styles = {
   	}
   `,
   fillerContainer: css`
-  	margin-top: 12%;
+  	margin-top: 11%;
   `,
   contentWrapper: css`
   	max-width: 1680px;
