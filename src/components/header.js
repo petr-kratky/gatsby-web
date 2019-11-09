@@ -8,6 +8,7 @@ const linkStyleBase = css`
   text-decoration: none;
   font-size: 18px;
   position: relative;
+  color: #eaeaec;
   :visited { color: #eaeaec }
   :before {
     content: '';
