@@ -8,10 +8,9 @@ import profilePic from "../images/profile_pic.jpg"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Paper from "../components/paper"
 
 import { slideInTop, padLeft, padRight } from "../utils/animations"
-import { BioSection } from "./bio"
+import BioSection from "../components/bioSection"
 
 const styles = {
   nameContainer: css`
@@ -192,6 +191,7 @@ const IndexPage = () => {
             picPosition="left"
             image={profilePic}
             text="Miluju tvořit! Baví mě přivádět na svět hezké a zároveň funkční věci, ať už je to webová aplikace nebo designový systém."
+            alt="profilová fotografie"
             index={4}
             classes={{ bioWrapper: styles.bioWrapper }}
           />
