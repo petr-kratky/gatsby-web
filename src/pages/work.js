@@ -49,6 +49,7 @@ const styles = {
   	font-weight: 500;
   	text-align: center;
   	padding: 0 30px;
+  	white-space: pre-wrap;
   `,
   separator: css`
   	height: 1px;
@@ -75,25 +76,25 @@ const WorkPage = () => {
       image: reactLogo,
       alt: "react logo",
       title: "React",
-      text: lorem
+      text: `"Jeden framework vládne všem." \n Nebo tak nějak to Tolkien napsal? React je moje go-to technologie pro front-end a můj denní chleba. Rád prozkoumávám jeho ekosystém a držet krok s jeho vývojem je pro mě otázka bytí.`
     },
     {
       image: nodeLogo,
       alt: "node JS logo",
       title: "Node.js",
-      text: lorem
+      text: "Kde je server, tam je web. A kde je web, tam je JavaScript. Co to tedy znamená pro webové servery? Node.js! Protože kdo jiný vám dá server-side runtime s multi-core škálováním v ceně jednoho front-end jazyku?"
     },
     {
       image: gqlLogo,
       alt: "graph QL logo",
       title: "GraphQL",
-      text: lorem
+      text: "Nativně typované multi-server web API s JSON-like sytaxí? Jedno si vezmu - zabalit s sebou, prosím! Ba ne, REST tu s námi ještě chvilku zůstane, ale GraphQL dokáže udělat z fetchování dat zábavní průmysl."
     },
     {
       image: pyLogo,
       alt: "python logo",
       title: "Python",
-      text: lorem
+      text: "Backend? Web server? Statistika? Machine learning? Hady normálně nemusím, ale tenhle zvládne vše od jednoduchých skriptů, přes webové servery, až po komplexní datovou analýzu. "
     }
   ]
 

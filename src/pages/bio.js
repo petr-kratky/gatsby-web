@@ -175,7 +175,7 @@ const BioPage = () => {
     {
       position: "right",
       image: booksPic,
-      text: "Bez písma by lidstvo pořád rozdělávalo oheň kamenem. Ani já se nechci zaseknout v pravěku, a proto si chodím pro inspiraci a motivaci do knih. Rád si čtu přiběhy druhých a učím se z nich. Na romány mě ale  neužije."
+      text: "Bez písma by lidstvo pořád rozdělávalo oheň kamenem. Ani já se nechci zaseknout v pravěku, a proto si chodím pro inspiraci a motivaci do knih. Rád si čtu přiběhy druhých a učím se z nich. Na romány mě ale moc neužije."
     }
   ]
 
