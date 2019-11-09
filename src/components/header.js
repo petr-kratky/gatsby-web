@@ -39,6 +39,7 @@ const styles = {
   	text-transform: uppercase;
   	display: inline-block;
   	text-decoration: none;
+  	color: #eaeaec;
   	:visited { color: #eaeaec }
   	font-weight: bold;
   	font-size: 26px;
